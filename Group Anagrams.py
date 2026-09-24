@@ -46,6 +46,8 @@ def groupAnagrams(strs: List[str]) -> List[List[str]]:
     sorted_anagrams = dicts.values()
     return list(sorted_anagrams)
 
+
+
         
     
     
