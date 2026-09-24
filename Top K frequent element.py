@@ -18,3 +18,7 @@ def topKFrequent(nums: List[int], k: int) -> List[int]:
         
     
 print(topKFrequent([1,2,2,3,3,3,3],2))
+
+
+
+
