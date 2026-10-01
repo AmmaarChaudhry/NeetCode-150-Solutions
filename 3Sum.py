@@ -2,11 +2,12 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         dicts = {}
         sums = []
+        return_list = []
         #remove_duplicates = []
         
         for counter in range(0, len(nums)):
             difference = 0 - nums[counter]
-            print(difference)
+            #print(difference)
             if difference not in dicts:
                 dicts.setdefault(difference, [])
                 dicts[difference] = [counter]
@@ -33,13 +34,32 @@ class Solution:
                             #print(f"{nums_indexes} + {nums[i]} + {nums[j]}")
                         #sums.append([nums[i], nums[j], ])
 
-        print(sums)
+        #print(sums)
+        #Removes repeating sets of indexes
         sums_cleaned = []
         for combos in sums:
             if set(combos) not in sums_cleaned:
                 sums_cleaned.append(set(combos))
-        print("////")
-        print(sums_cleaned)
+        #print("////")
+        #print(sums_cleaned)
+        
+        #Converts the nested list of indexes into nums values
+        for combos in sums_cleaned:
+            combos_list = list(combos)
+            return_sublist = []
+            #print(combos_list[0])
+            return_sublist.append(nums[combos_list[0]])
+            return_sublist.append(nums[combos_list[1]])
+            return_sublist.append(nums[combos_list[2]])
+            return_list.append(return_sublist)
+       
+        #Cleans nested list one more time to remove duplicates:
+        #unique = [list(x) for x in {tuple(sorted(x)) for x in lists}]
+        return_list_cleaned = [list(x) for x in {tuple(sorted(x)) for x in return_list}]
+        print(return_list_cleaned)
+        return return_list_cleaned   
+        
+        
         
         """
         
